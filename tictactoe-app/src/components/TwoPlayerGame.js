@@ -41,6 +41,7 @@ const TwoPlayerGame = ({ goBack }) => {
 
   return (
     <div className="game">
+      <h2>2 Player</h2>
       <h2>{winner ? (winner === 'Draw' ? "It's a Draw!" : `Winner: ${winner}`) : `Next Player: ${xIsNext ? 'X' : 'O'}`}</h2>
       <div className="board">
         {board.map((value, index) => (

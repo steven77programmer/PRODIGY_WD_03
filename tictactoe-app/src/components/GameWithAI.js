@@ -128,6 +128,7 @@ const GameWithAI = ({ goBack }) => {
 
   return (
     <div className="game">
+      <h2>1 vs AI</h2>
       <h2>
         {winner ? 
           (winner === 'Draw' ? "It's a Draw!" : `Winner: ${winner}`) : 
