@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Home from './components/Home';
+import TwoPlayerGame from './components/TwoPlayerGame';
+import GameWithAI from './components/GameWithAI';
 import './App.css';
 
 function App() {
+  const [mode, setMode] = useState(null);
+
+  const selectMode = (selectedMode) => {
+    setMode(selectedMode);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!mode && <Home selectMode={selectMode} />}
+      {mode === '2player' && <TwoPlayerGame goBack={() => setMode(null)} />}
+      {mode === '1vsAI' && <GameWithAI goBack={() => setMode(null)} />}
     </div>
   );
 }
